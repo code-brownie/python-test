@@ -21,7 +21,8 @@ const App = () => {
     formData.append('image', file);
 
     try {
-      const response = await fetch(' http://localhost:8000/process_image', {
+      // const response = await fetch(' http://localhost:8000/process_image', {
+      const response = await fetch(' https://python-test-63qj.onrender.com/process_image', {
         method: 'POST',
         body: formData,
       });
