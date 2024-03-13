@@ -41,6 +41,7 @@ const App = () => {
       <form onSubmit={handleFormSubmit}>
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Upload</button>
+        {responseMessage && <p>{responseMessage}</p>}
       </form>
     </div>
   );
