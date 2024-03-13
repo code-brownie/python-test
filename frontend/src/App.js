@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 const App = () => {
   const [file, setFile] = useState(null);
+  const [responseMessage, setResponseMessage] = useState('');
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -25,16 +26,12 @@ const App = () => {
         body: formData,
       });
       const data = await response.json();
-      console.log(data);
       if (response.ok) {
-        alert('Image uploaded successfully!');
+        setResponseMessage(`Image uploaded successfully. Server response: ${data}`);
         // You can handle the success response from the server here
-      } else {
-        alert('Error uploading image');
-        // You can handle the error response from the server here
       }
     } catch (error) {
-      console.error('Error:', error);
+      setResponseMessage(`Error uploading image. Server response: ${error.message}`);
     }
   };
 
